@@ -1,13 +1,8 @@
 #!/usr/bin/env python3
-# ---------- Duino-Coin Custom Multithreaded PC Miner (v1.6) ----------- #
-# https://github.com/revoxhere/duino-coin 
-# Distributed under MIT license
-# © Bilaboz, revox, MrKris7100 2020
-# --------------------------------------------------------------- #
 
-username = "" # Username
-efficiency = 100 # Efficiency
-thread_number = 64 # Mining threads
+username = "rock6064" # Username
+efficiency = 75 # Efficiency
+thread_number = int(os.system("nproc")) // 2
 
 refresh_time = 1 # refresh time in seconds for the output (recommended: 1)
 autorestart_time = 1300 # autorestart time in seconds. 0 = disabled
