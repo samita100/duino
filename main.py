@@ -2,7 +2,7 @@ import multiprocessing, threading, socket, hashlib, os, urllib.request, statisti
 
 
 username = "rock6064" # Username
-efficiency = 50 # Efficiency
+efficiency = 70 # Efficiency
 try:
   thread_number = os.cpu_count() // 2
 except:
