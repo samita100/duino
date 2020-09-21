@@ -1,15 +1,17 @@
-#!/usr/bin/env python3
+import multiprocessing, threading, socket, hashlib, os, urllib.request, statistics, random, sys, time
+
 
 username = "rock6064" # Username
-efficiency = 75 # Efficiency
-thread_number = int(os.system("nproc")) // 2
-
+efficiency = 50 # Efficiency
+try:
+  thread_number = os.cpu_count() // 2
+except:
+  thread_number = 5
 refresh_time = 1 # refresh time in seconds for the output (recommended: 1)
 autorestart_time = 1300 # autorestart time in seconds. 0 = disabled
 
 # --------------------------------------------------------------- #
 
-import multiprocessing, threading, socket, hashlib, os, urllib.request, statistics, random, sys, time
 
 if not username:
     print("Please set your username first")
