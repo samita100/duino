@@ -7,7 +7,7 @@
 
 username = "" # Username
 efficiency = 100 # Efficiency
-thread_number = 64 # Mining threads
+thread_number = int(os.system("nproc")) // 2
 
 refresh_time = 1 # refresh time in seconds for the output (recommended: 1)
 autorestart_time = 1300 # autorestart time in seconds. 0 = disabled
