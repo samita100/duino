@@ -13,11 +13,6 @@ autorestart_time = 600 # autorestart time in seconds. 0 = disabled
 # --------------------------------------------------------------- #
 
 
-if not username:
-    print("Please set your username first")
-    time.sleep(5)
-    os._exit(1)
-
 last_hash_count = 0
 khash_count = 0
 hash_count = 0
@@ -107,12 +102,9 @@ def showOutput():
     for thread in range(thread_number):
         d[f"#{thread + 1}"] = [f"{hashrate_array[thread]} kH/s", accepted_shares[thread], bad_shares[thread]]
 
-    print("{:<9} {:<13} {:<10} {:<10}".format('Thread','Hashrate','Accepted','Rejected'))
+
     for k, v in d.items():
         hashrate, good, bad = v
-        print("{:<9} {:<13} {:<10} {:<10}".format(k, hashrate, good, bad))
-    
-    print("{:<9} {:<13} {:<10} {:<10}".format("TOTAL", totalHashrate(sum(hashrate_array)), sum(accepted_shares), sum(bad_shares)))
 
     threading.Timer(float(refresh_time), showOutput).start()
         
