@@ -102,21 +102,7 @@ def stopper():
     os._exit(0)
 
 def showOutput():
-    clear()
-
-    d = {}
-    for thread in range(thread_number):
-        d[f"#{thread + 1}"] = [f"{hashrate_array[thread]} kH/s", accepted_shares[thread], bad_shares[thread]]
-
-  
-    for k, v in d.items():
-        hashrate, good, bad = v
-        print("{:<9} {:<13} {:<10} {:<10}".format(k, hashrate, good, bad))
-    
-    print("{:<9} {:<13} {:<10} {:<10}".format("TOTAL", totalHashrate(sum(hashrate_array)), sum(accepted_shares), sum(bad_shares)))
-
-    threading.Timer(float(refresh_time), showOutput).start()
-        
+    print("Working")
 
 def clear():
     os.system('cls' if os.name=='nt' else 'clear')
@@ -147,7 +133,6 @@ if __name__ == '__main__':
     pool_port = content[1]
     
 
-    thread_number = int(input("Number of threads: "))
 
     hashrate_array = multiprocessing.Array("d", thread_number)
     accepted_shares = multiprocessing.Array("i", thread_number)
