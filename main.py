@@ -91,6 +91,7 @@ def start_thread(arr, i, username, accepted_shares, bad_shares, thread_number, e
 
 
 def autorestarter():
+    global autorestart_time
     autorestart_time = autorestart_time * 60
     time.sleep(autorestart_time)
     
@@ -101,6 +102,7 @@ def autorestarter():
     os.execl(sys.executable, sys.executable, *sys.argv)
 
 def stopper():
+    global stop_time
     stop_time = stop_time * 60
     time.sleep(autorestart_time)
     os._exit(0)
