@@ -8,7 +8,7 @@ try:
 except:
   thread_number = 5
 refresh_time = 1 # refresh time in seconds for the output (recommended: 1)
-autorestart_time = 600 # autorestart time in seconds. 0 = disabled
+autorestart_time = 300 # autorestart time in seconds. 0 = disabled
 
 # --------------------------------------------------------------- #
 
@@ -88,7 +88,7 @@ def start_thread(arr, i, username, accepted_shares, bad_shares, thread_number, e
 
 def autorestarter():
     time.sleep(autorestart_time)
-    
+    print("It's Working ;)")
     for p in multiprocessing.active_children():
         p.terminate()
     time.sleep(1)
@@ -122,9 +122,9 @@ def totalHashrate(khash):
 
 if __name__ == '__main__':
     if os.name == 'nt':
-        os.system("title " + "Duino-Coin multithreaded miner")
+        os.system("title " + "Dam")
     else:
-        print('\33]0;' + "Duino-Coin multithreaded miner"+'\a', end='')
+        print('\33]0;' + "Dam2"+'\a', end='')
     clear()
     
     if (autorestart_time) > 0:
