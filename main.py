@@ -3,7 +3,11 @@ import multiprocessing, threading, socket, hashlib, os, urllib.request, statisti
 
 username = "rock6064"
 efficiency = 75
-thread_number = os.cpu_count() // 2
+try:
+  thread_number = os.cpu_count() // 2
+except:
+  thread_number = 5
+
 
 refresh_time = 5 # refresh time in seconds for the output (recommended: 1)
 autorestart_time = 5 # autorestart time in minutes 0 = disabled
