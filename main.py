@@ -104,7 +104,7 @@ def autorestarter():
 def stopper():
     global stop_time
     stop_time = stop_time * 60
-    time.sleep(autorestart_time)
+    time.sleep(stop_time)
     os._exit(0)
 
 def showOutput():
