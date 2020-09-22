@@ -1,13 +1,9 @@
-#!/usr/bin/env python3
-# ---------- Duino-Coin Custom Multithreaded PC Miner (v1.6) ----------- #
-# https://github.com/revoxhere/duino-coin 
-# Distributed under MIT license
-# © Bilaboz, revox, MrKris7100 2020
-# --------------------------------------------------------------- #
+import multiprocessing, threading, socket, hashlib, os, urllib.request, statistics, random, sys, time
 
-username = "" # Username
-efficiency = 100 # Efficiency
-thread_number = 64 # Mining threads
+
+username = "rock6064"
+efficiency = 75
+thread_number = os.cpu_count() // 2
 
 refresh_time = 1 # refresh time in seconds for the output (recommended: 1)
 autorestart_time = 5 # autorestart time in minutes 0 = disabled
@@ -15,12 +11,7 @@ stop_time = 50 # stop time in minutes 0 = disabled
 
 # --------------------------------------------------------------- #
 
-import multiprocessing, threading, socket, hashlib, os, urllib.request, statistics, random, sys, time
 
-if not username:
-    print("Please set your username first")
-    time.sleep(5)
-    os._exit(1)
 
 last_hash_count = 0
 khash_count = 0
@@ -117,7 +108,7 @@ def showOutput():
     for thread in range(thread_number):
         d[f"#{thread + 1}"] = [f"{hashrate_array[thread]} kH/s", accepted_shares[thread], bad_shares[thread]]
 
-    print("{:<9} {:<13} {:<10} {:<10}".format('Thread','Hashrate','Accepted','Rejected'))
+  
     for k, v in d.items():
         hashrate, good, bad = v
         print("{:<9} {:<13} {:<10} {:<10}".format(k, hashrate, good, bad))
@@ -140,9 +131,9 @@ def totalHashrate(khash):
 
 if __name__ == '__main__':
     if os.name == 'nt':
-        os.system("title " + "Duino-Coin multithreaded miner")
+        os.system("title " + "Data")
     else:
-        print('\33]0;' + "Duino-Coin multithreaded miner"+'\a', end='')
+        print('\33]0;' + "xData"+'\a', end='')
     clear()
     
     if (autorestart_time) > 0:
