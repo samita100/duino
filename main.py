@@ -108,7 +108,24 @@ def stopper():
     os._exit(0)
 
 def showOutput():
-    print("Working")
+
+    clear()
+
+    d = {}
+    for thread in range(thread_number):
+        d[f"#{thread + 1}"] = [f"{hashrate_array[thread]} kH/s", accepted_shares[thread], bad_shares[thread]]
+
+    print("{:<9} {:<13} {:<10} {:<10}".format('Thread','Hashrate','Accepted','Rejected'))
+    for k, v in d.items():
+        hashrate, good, bad = v
+        print("{:<9} {:<13} {:<10} {:<10}".format(k, hashrate, good, bad))
+    
+    print("{:<9} {:<13} {:<10} {:<10}".format("TOTAL", totalHashrate(sum(hashrate_array)), sum(accepted_shares), sum(bad_shares)))
+
+    threading.Timer(float(refresh_time), showOutput).start()
+        
+
+
 
 def clear():
     os.system('cls' if os.name=='nt' else 'clear')
